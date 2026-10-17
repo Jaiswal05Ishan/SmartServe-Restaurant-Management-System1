@@ -627,7 +627,7 @@ No. It runs locally on `127.0.0.1`.
 | 4 | **Om Pande** |
 | 5 | **Ashwini Goswami** |
 
-🔗 **[github.com/atul-nandanwar/SmartServe-Restaurant-Management-System1](https://github.com/atul-nandanwar/SmartServe-Restaurant-Management-System1)**
+🔗 **[https://github.com/Jaiswal05Ishan/SmartServe-Restaurant-Management-System1](https://github.com/Jaiswal05Ishan/SmartServe-Restaurant-Management-System1)**
 
 </div>
 
