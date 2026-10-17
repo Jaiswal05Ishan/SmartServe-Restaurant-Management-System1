@@ -1,0 +1,51 @@
+[
+  {
+    "id": 1,
+    "name": "Paneer Tikka",
+    "price": 180.0,
+    "emoji": "🍢",
+    "desc": "Smoky, marinated paneer"
+  },
+  {
+    "id": 2,
+    "name": "Veg Biryani",
+    "price": 160.0,
+    "emoji": "🍚",
+    "desc": "Fragrant rice and spices"
+  },
+  {
+    "id": 3,
+    "name": "Masala Dosa",
+    "price": 90.0,
+    "emoji": "🥞",
+    "desc": "Crispy dosa with masala"
+  },
+  {
+    "id": 4,
+    "name": "Veg Burger",
+    "price": 110.0,
+    "emoji": "🍔",
+    "desc": "Veg patty and fresh greens"
+  },
+  {
+    "id": 5,
+    "name": "Cold Coffee",
+    "price": 80.0,
+    "emoji": "🥤",
+    "desc": "Chilled coffee"
+  },
+  {
+    "id": 6,
+    "name": "Gulab Jamun",
+    "price": 60.0,
+    "emoji": "🍮",
+    "desc": "Classic sweet dessert"
+  },
+  {
+    "id": 7,
+    "name": "samsoa",
+    "price": 40.0,
+    "emoji": "🍽️",
+    "desc": "Freshly prepared"
+  }
+]

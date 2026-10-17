@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartServe | Restaurant Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <div><strong>SmartServe</strong><small>Restaurant OS</small></div>
+      </div>
+      <div class="nav-label">WORKSPACE</div>
+      <nav class="nav">
+        <button class="nav-item active" data-page="dashboard"><span>▦</span> Dashboard</button>
+        <button class="nav-item" data-page="menu"><span>☷</span> Food menu</button>
+        <button class="nav-item" data-page="orders"><span>▤</span> Orders</button>
+        <button class="nav-item" data-page="kitchen"><span>♨</span> Kitchen queue</button>
+        <button class="nav-item" data-page="billing"><span>₹</span> Billing</button>
+        <button class="nav-item" data-page="data-structures"><span>⌘</span> DSA lab</button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="status-dot"></div>
+        <div><strong>System preview</strong><small>Frontend demo mode</small></div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <div class="eyebrow">RESTAURANT MANAGEMENT</div>
+          <h1 id="page-title">Dashboard</h1>
+        </div>
+        <div class="top-actions">
+          <span class="today-pill">● Demo data</span>
+          <div class="avatar">SS</div>
+        </div>
+      </header>
+
+      <section class="page active" id="dashboard">
+        <div class="welcome">
+          <div><p class="eyebrow light">WELCOME BACK</p><h2>Your restaurant at a glance.</h2><p>Monitor orders, kitchen activity and daily sales from one place.</p></div>
+          <button class="primary-btn" data-go="menu">＋ Create order</button>
+        </div>
+        <div class="stats-grid">
+          <article class="stat-card"><div class="stat-top"><span>Total orders</span><span class="stat-icon purple">▤</span></div><strong id="total-orders">3</strong><small class="muted">Saved order records</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Pending kitchen</span><span class="stat-icon orange">♨</span></div><strong id="pending-orders">2</strong><small class="muted">Waiting to be processed</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Processed</span><span class="stat-icon green">✓</span></div><strong id="processed-orders">1</strong><small class="muted">Completed kitchen orders</small></article>
+          <article class="stat-card"><div class="stat-top"><span>Order value</span><span class="stat-icon blue">₹</span></div><strong id="order-value">₹1,440</strong><small class="muted">Before GST · demo records</small></article>
+        </div>
+        <div class="content-grid">
+          <article class="panel">
+            <div class="panel-heading"><div><h3>Recent orders</h3><p>Latest activity in the system</p></div><button class="text-btn" data-go="orders">View all →</button></div>
+            <div class="table-wrap"><table><thead><tr><th>ORDER</th><th>ITEM</th><th>QTY</th><th>AMOUNT</th><th>STATUS</th></tr></thead><tbody id="recent-orders"></tbody></table></div>
+          </article>
+          <article class="panel quick-panel">
+            <div class="panel-heading"><div><h3>Quick actions</h3><p>Jump into a workflow</p></div></div>
+            <button class="quick-action" data-go="menu"><span class="quick-icon purple">＋</span><span><strong>Place an order</strong><small>Choose food and quantity</small></span><b>→</b></button>
+            <button class="quick-action" data-go="kitchen"><span class="quick-icon orange">♨</span><span><strong>Kitchen queue</strong><small>Process pending orders</small></span><b>→</b></button>
+            <button class="quick-action" data-go="billing"><span class="quick-icon green">₹</span><span><strong>Generate a bill</strong><small>Review order total and GST</small></span><b>→</b></button>
+          </article>
+        </div>
+        <div class="note-banner"><span>ⓘ</span><div><strong>Frontend preview</strong><p>This UI currently uses browser demo data. It is not connected to your C program or <code>data/orders.txt</code> yet.</p></div></div>
+      </section>
+
+      <section class="page" id="menu">
+        <div class="section-intro"><div><h2>Food menu</h2><p>Select an item and quantity to create a demo order.</p></div></div>
+        <div class="food-grid" id="food-grid"></div>
+        <article class="panel order-form">
+          <div class="panel-heading"><div><h3>Create demo order</h3><p>Temporary browser data only</p></div></div>
+          <form id="order-form">
+            <label for="food-select">Food item</label><select id="food-select"></select>
+            <label for="quantity">Quantity</label><input id="quantity" type="number" min="1" max="50" value="1" required>
+            <div class="form-total"><span>Subtotal</span><strong id="form-total">₹180.00</strong></div>
+            <button class="primary-btn" type="submit">Add demo order</button>
+          </form>
+        </article>
+      </section>
+
+      <section class="page" id="orders">
+        <div class="section-intro"><div><h2>Order history</h2><p>All demo orders and their kitchen status.</p></div><button class="secondary-btn" id="reset-demo">Reset demo data</button></div>
+        <article class="panel"><div class="table-wrap"><table><thead><tr><th>ORDER</th><th>ITEM</th><th>QTY</th><th>AMOUNT</th><th>STATUS</th><th>ACTION</th></tr></thead><tbody id="all-orders"></tbody></table></div></article>
+      </section>
+
+      <section class="page" id="kitchen">
+        <div class="section-intro"><div><h2>Kitchen queue</h2><p>FIFO — First In, First Out. Process the oldest pending order first.</p></div><span class="tag orange-tag">FIFO queue</span></div>
+        <article class="panel"><div class="panel-heading"><div><h3>Pending orders</h3><p id="queue-count">2 orders waiting</p></div><button class="primary-btn" id="process-next">Process next order</button></div><div id="queue-list" class="queue-list"></div></article>
+      </section>
+
+      <section class="page" id="billing">
+        <div class="section-intro"><div><h2>Billing</h2><p>Choose an order to calculate the sample bill.</p></div></div>
+        <article class="panel bill-panel"><label for="bill-order">Order ID</label><select id="bill-order"></select><div id="bill-details" class="bill-details"></div></article>
+      </section>
+
+      <section class="page" id="data-structures">
+        <div class="section-intro"><div><h2>DSA lab</h2><p>Visual explanations of the data structures used in SmartServe.</p></div></div>
+        <div class="dsa-grid">
+          <article class="panel dsa-card"><span class="tag orange-tag">FIFO</span><h3>Kitchen Queue</h3><p>First In, First Out. The oldest pending order is processed first.</p><div id="dsa-queue" class="dsa-items"></div></article>
+          <article class="panel dsa-card"><span class="tag purple-tag">LIFO</span><h3>Recent-order Stack</h3><p>Last In, First Out. The latest order appears at the top.</p><div id="dsa-stack" class="dsa-items stack-items"></div><button class="secondary-btn" id="peek-stack">Peek top order</button><p id="stack-message" class="inline-message"></p></article>
+          <article class="panel dsa-card"><span class="tag blue-tag">Linked List</span><h3>Order chain</h3><p>Each order node links to the next order in history.</p><div id="dsa-list" class="chain"></div></article>
+          <article class="panel dsa-card"><span class="tag green-tag">BST</span><h3>Order ID search</h3><p>Search demo orders by their ID. The tree is built from the current demo records.</p><div class="search-row"><input id="bst-search" type="number" min="1" placeholder="Enter order ID"><button class="secondary-btn" id="bst-search-btn">Search</button></div><p id="bst-result" class="inline-message"></p></article>
+        </div>
+      </section>
+      <footer>SmartServe · Student project preview <span>Backend integration is a separate next step</span></footer>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
