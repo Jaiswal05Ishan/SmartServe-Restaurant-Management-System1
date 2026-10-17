@@ -332,7 +332,7 @@ All commands run from the **project root** in **Windows PowerShell**.
 ### 1️⃣ Clone
 
 ```powershell
-git clone https://github.com/atul-nandanwar/SmartServe-Restaurant-Management-System1.git
+git clone https://github.com/Jaiswal05Ishan/SmartServe-Restaurant-Management-System1.git
 cd SmartServe-Restaurant-Management-System1
 ```
 
